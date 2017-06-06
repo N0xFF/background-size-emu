@@ -16,7 +16,7 @@ This notice should not be removed.
     function BgSzEmu()
     {
         BgSzEmu.prototype.elemsOnPrevCheck = null;
-        BgSzEmu.prototype.genericEmptyBG = "url(empty_bg_" + new Date().getTime() + ".wtf)";
+        BgSzEmu.prototype.genericEmptyBG = "url()";
     }
 
     BgSzEmu.prototype.scanElems = function ()
@@ -137,6 +137,8 @@ This notice should not be removed.
         }
 
         var prev_backgroundImage = BgSzEmu.prototype.getCSSPropertyValue(elem, "background-image", "backgroundImage") || elem.background || elem.getAttribute("background");
+		prev_backgroundImage = prev_backgroundImage.replace(/https?:\/{2}.*?(?=\/)/i,'');
+		prev_backgroundImage = prev_backgroundImage.replace(/"/ig,'');
 
         if (BgSzEmu.prototype.startsWith(prev_backgroundImage, "url(")) //process images only. skip gradients
         {
