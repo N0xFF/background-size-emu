@@ -4,10 +4,10 @@ Library homepage: https://github.com/Metafalica/background-size-emu
 This free library is result of my intellectual work.
 I (the author, named Konstantin Izofatov, living in Russia, metafalica@gmx.com) grant you (the user) permissions
 to use this library in any kind of projects and modify it in any way.
-	
+
 This library provided "AS IS". I am not responsible for any damages that you can receive from using it.
 Use it on your own risk.
-	
+
 This notice should not be removed.
 */
 
@@ -137,8 +137,8 @@ This notice should not be removed.
         }
 
         var prev_backgroundImage = BgSzEmu.prototype.getCSSPropertyValue(elem, "background-image", "backgroundImage") || elem.background || elem.getAttribute("background");
-		prev_backgroundImage = prev_backgroundImage.replace(/https?:\/{2}.*?(?=\/)/i,'');
-		prev_backgroundImage = prev_backgroundImage.replace(/"/ig,'');
+        // prev_backgroundImage = prev_backgroundImage.replace(/https?:\/{2}.*?(?=\/)/i,'');
+        prev_backgroundImage = prev_backgroundImage.replace(/"/ig,'');
 
         if (BgSzEmu.prototype.startsWith(prev_backgroundImage, "url(")) //process images only. skip gradients
         {
@@ -232,7 +232,7 @@ This notice should not be removed.
     BgSzEmu.prototype.getAvailableAreaSizeIn = function (elem)
     {
         var sz = { width: elem.clientWidth || elem.offsetWidth, height: elem.clientHeight || elem.offsetHeight };
-            
+
         return sz;
     };
 
